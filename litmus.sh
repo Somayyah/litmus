@@ -1,10 +1,14 @@
 #!/bin/bash
 
-declare -r SRC="$1"
+## declare -r SRC="$1"
 CURRENT_TIME="$(date +"%x %r %Z")"
 
+C_SRC=""
+TEST_SRC=""
+
 do_1(){
-	echo "Here we test the c file"
+	read -p "enter the names of the c file and the test file, without a full path the function assumes they're in CWD" C_SRC TEST_SRC
+	
 	return
 }	
 do_2(){
