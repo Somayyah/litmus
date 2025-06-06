@@ -19,6 +19,20 @@ TIMESTAMP="Generated $CURRENT_TIME, by ${USER}"
 
 : << 'EOF'
 
+Follow this syntax:
+
+```
+if commands; then
+	commands
+[elif commands; then
+	commands...]
+[else
+	commands]
+fi
+```
+
+Example:
+
 x=5
 if [ "$x" -eq 5 ]; then
 	echo "x equals 5."
@@ -26,26 +40,6 @@ else
 	echo "x does not equal 5."
 fi
 
-EOF
-
-: <<'EOF'
-During expansion, variable names may be surrounded by optional curly braces, {}. This
-is useful in cases where a variable name becomes ambiguous because of its surrounding
-context. Here, we try to change the name of a file from myfile to myfile1, using a
-variable:
-
-[me@linuxbox ~]$ filename="myfile"
-[me@linuxbox ~]$ touch "$filename"
-[me@linuxbox ~]$ mv "$filename" "$filename1"
-mv: missing destination file operand after `myfile'
-Try `mv --help' for more information.
-
-This attempt fails because the shell interprets the second argument of the mv command as
-a new (and empty) variable. The problem can be overcome this way:
-
-[me@linuxbox ~]$ mv "$filename" "${filename}1"
-By adding the surrounding braces, the shell no longer interprets the trailing 1 as part of
-the variable name.
 EOF
 
 test(){
