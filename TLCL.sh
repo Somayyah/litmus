@@ -81,6 +81,17 @@ EOF
 	command1 || command2
 EOF
 
+## case statement
+
+: << EOF
+	case "${choice}" in
+		1) echo "You entered 1"
+		2) echo "You entered 2"
+		q) echo "You entered q"
+		*) echo "wrong choice"
+	esac
+
+EOF
 ## How to read user input with read
 
 : << EOF

@@ -6,6 +6,17 @@ Made for quick checks and learning, not for production.
 
 ## Usage
 
+- Without any arguments to enter the options manually:
+
+	```
+	➜ bash litmus.sh
+	Welcome, please enter an option:
+	1 -> Test against a use case file
+	2 -> Generate a use case file
+	q -> Quit	
+	```
+	
+	
 - To create test files:
 
   ```

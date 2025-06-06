@@ -3,14 +3,20 @@
 declare -r SRC="$1"
 CURRENT_TIME="$(date +"%x %r %Z")"
 
-test(){
-	# Run the code and compare it to the test file
+do_1(){
+	echo "Here we test the c file"
 	return
 }	
-generate(){
-	# To generate the test file(s)
+do_2(){
+	echo "Here we generate the test file"
 	return
 }
+
+do_q(){
+	echo "Exiting.."
+	exit 0
+}
+
 main(){
 	# test
 		# Does c and JSON test files exist?
@@ -27,15 +33,15 @@ main(){
 
 echo "Welcome, please enter an option:"
 
-echo -e "1 -> Test against a use case file\n2 -> Generate a use case file"
+echo -e "1 -> Test against a use case file\n2 -> Generate a use case file\nq -> Quit"
 
 read choice
 
-if [[ "$choice" =~ ^(1|2)$ ]]; then
-	echo "You entered ${choice}"
-else
-	echo "Wrong choice"
-	exit 1
-fi
+case "${choice}" in
+	1) do_1 ;;
+	2) do_2 ;;
+	Q|q) do_q ;;
+	*) echo "wrong choice" ;;
+esac
 
 exit 0
