@@ -12,11 +12,6 @@ generate(){
 	return
 }
 main(){
-	# test or generate test file?
-	if [ ! -e "${SRC}" ]; then
-		echo "Missing file, are you sure it exists?"
-		exit 1
-	fi
 	# test
 		# Does c and JSON test files exist?
 			# Yes : test()
@@ -28,6 +23,19 @@ main(){
 	return
 }
 
-echo "Generated $CURRENT_TIME, by ${USER}"
+## If no arguments are passed
+
+echo "Welcome, please enter an option:"
+
+echo -e "1 -> Test against a use case file\n2 -> Generate a use case file"
+
+read choice
+
+if [[ "$choice" =~ ^(1|2)$ ]]; then
+	echo "You entered ${choice}"
+else
+	echo "Wrong choice"
+	exit 1
+fi
 
 exit 0
